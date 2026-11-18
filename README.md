@@ -17,7 +17,7 @@ python3 -m http.server 4100   # then open http://localhost:4100
 | `#inicio` | Hero | The Cargo page as HTML: headline, rule, "Naturaleza y ciudad en equilibrio.", Ibagué, Tolima. Desktop keeps the Cargo 1440 × 1024 frame. |
 | `#proyecto` | El proyecto | 160 ha, mixed use, parque central, 15 minutes walking. No stat strip. |
 | `#video` | Video | Preliminary cut, flat 16:9 frame. |
-| `#ubicacion` | Ubicación | Interactive Leaflet map: satellite (default) and street view, Club Campestre marker, approximate project outline, road labels. |
+| `#ubicacion` | Ubicación | Interactive Leaflet map: satellite (default) and street view, markers for Imara and the Club Campestre, road labels. |
 | `#proyectos` | Proyectos actuales | Ferrat Gran Reserva and Foresti, one row each with render, logo, short text and a link that preselects the interest in the form. |
 | `#avance` | Cronograma | Placeholder steps, no status. |
 | `#registro` | Registro | Lead form on the sky, landscape at the bottom. |
@@ -46,14 +46,13 @@ Search the HTML for `pending`, `note` and `por confirmar`.
 - **Cronograma** (`#avance`): the five steps and all dates are examples. Get the real ones from Imara.
 - **Contact** in the footer: phone and email.
 - **Habeas Data**: company name, NIT and contact in `privacidad.html`.
-- **Project outline on the map**: see "Map" below.
 
 ## Map
 
 - Library: Leaflet 1.9.4 from cdnjs (with SRI), loaded only when `#ubicacion` is about 600 px from the viewport.
 - Tiles, no API key: Esri World Imagery (satellite) and Esri World Street Map (street view). Both are credited in the map's attribution line. Carto basemaps were tried first and now return an "API key required" watermark.
 - Club Campestre de Ibagué: `4.3999, -75.16258`, geocoded with Nominatim (OpenStreetMap way 30927829, the golf course).
-- Imara outline: about 156 ha, drawn by hand east of the golf course, south of Avenida Mirolindo and west of Calle 145 (the road OpenStreetMap names "Variante Norte de Ibagué"), following the perimeter in the client's location map from the video. It is labelled "área aproximada". Replace `MAP.area` in `main.js` with the surveyed polygon when Imara sends it.
+- Imara: one marker at `4.3962, -75.1552`, east of the golf course between Avenida Mirolindo, Calle 145 (the road OpenStreetMap names "Variante Norte de Ibagué") and the Variante. The map does not draw the project boundary. When Imara confirms one, add it as a polygon in `buildMap()` in `main.js`.
 - On touch screens one finger scrolls the page and two fingers move the map, so the map does not trap the scroll. The mouse wheel does not zoom; use the + and − buttons.
 
 ## Form → Google Sheets

@@ -175,15 +175,16 @@ button { font: inherit; }
 .map-legend .text-link { margin-left: auto; }
 @media (max-width: 699px) { .map-legend .text-link { margin-left: 0; } }
 .key { display: inline-block; flex: none; }
-.key-area { width: 22px; height: 14px; border: 2px dashed var(--ink); }
-.key-club { width: 14px; height: 14px; border-radius: 50%; background: var(--ink); border: 2px solid var(--white); outline: 1px solid var(--ink); }
+.key-imara { width: 18px; height: 18px; border-radius: 50%; background: var(--ink); border: 3px solid var(--white); outline: 1px solid var(--ink); }
+.key-club { width: 12px; height: 12px; border-radius: 50%; background: var(--white); border: 3px solid var(--ink); }
 
 /* Leaflet, flattened to match the page */
 .leaflet-container { font-family: var(--sans); background: #C9D3C7; }
 .leaflet-bar { border: 1px solid var(--ink) !important; border-radius: 0 !important; box-shadow: none !important; }
 .leaflet-bar a { border-radius: 0 !important; color: var(--ink) !important; border-bottom-color: var(--line) !important; }
 .leaflet-control-attribution { font-size: 11px; background: rgba(255, 255, 255, .85) !important; }
-.map-pin { width: 16px; height: 16px; border-radius: 50%; background: var(--ink); border: 3px solid var(--white); }
+.map-pin { width: 16px; height: 16px; border-radius: 50%; background: var(--white); border: 4px solid var(--ink); }
+.map-pin.is-imara { background: var(--ink); border: 4px solid var(--white); }
 .map-label {
   font: 500 13px/1.2 var(--sans); color: var(--white); white-space: nowrap;
   text-shadow: 0 0 3px rgba(0, 0, 0, .9), 0 0 8px rgba(0, 0, 0, .6);

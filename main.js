@@ -44,11 +44,9 @@
   var MAP = {
     // Club Campestre de Ibagué, geocoded with Nominatim (OSM way 30927829)
     club: [4.3999, -75.16258],
-    // Approximate outline of Imara (~156 ha): east of the golf course, south of
-    // Avenida Mirolindo, west of Calle 145. Traced from the client's location map.
-    area: [[4.4024, -75.1530], [4.4012, -75.1486], [4.3990, -75.1490], [4.3975, -75.1478], [4.3962, -75.1468],
-      [4.3925, -75.1502], [4.3895, -75.1530], [4.3897, -75.1575], [4.3915, -75.1615], [4.3932, -75.1634],
-      [4.3937, -75.1608], [4.3953, -75.1600], [4.3978, -75.1594], [4.3990, -75.1590], [4.4003, -75.1575], [4.4007, -75.1555]],
+    // Imara: a single point east of the golf course, between Avenida Mirolindo,
+    // Calle 145 and the Variante. No boundary is drawn until Imara confirms one.
+    imara: [4.3962, -75.1552],
     labels: [
       { at: [4.4040, -75.1560], text: "Avenida Mirolindo" },
       { at: [4.3962, -75.1458], text: "Calle 145" },
@@ -104,9 +102,11 @@
     };
     var current = layers.satelite.addTo(map);
 
-    var area = L.polygon(MAP.area, { color: "#FFFFFF", weight: 2.5, dashArray: "8 6", fillColor: "#FFFFFF", fillOpacity: 0.14 }).addTo(map);
-    var areaCenter = area.getBounds().getCenter();
-    L.marker(areaCenter, { interactive: false, keyboard: false, icon: L.divIcon({ className: "map-label is-name", html: "Imara", iconSize: null, iconAnchor: [30, 12] }) }).addTo(map);
+    L.marker(MAP.imara, {
+      title: "Imara Ciudad Campestre", alt: "Imara Ciudad Campestre",
+      icon: L.divIcon({ className: "map-pin is-imara", iconSize: [22, 22], iconAnchor: [11, 11] })
+    }).addTo(map);
+    L.marker(MAP.imara, { interactive: false, keyboard: false, icon: L.divIcon({ className: "map-label is-name", html: "Imara", iconSize: null, iconAnchor: [-16, 14] }) }).addTo(map);
 
     L.marker(MAP.club, {
       title: "Club Campestre de Ibagué", alt: "Club Campestre de Ibagué",
@@ -118,7 +118,7 @@
       L.marker(l.at, { interactive: false, keyboard: false, icon: L.divIcon({ className: "map-label", html: l.text, iconSize: null, iconAnchor: [0, 8] }) }).addTo(map);
     });
 
-    var bounds = area.getBounds().extend(MAP.club);
+    var bounds = L.latLngBounds([MAP.imara, MAP.club]);
     MAP.labels.forEach(function (l) { bounds.extend(l.at); });
     function fit() { map.fitBounds(bounds, { paddingTopLeft: [16, 52], paddingBottomRight: [72, 16] }); }
     fit();
@@ -136,9 +136,6 @@
         current = layers[key].addTo(map);
         var street = key === "mapa";
         mapEl.classList.toggle("is-street", street);
-        area.setStyle(street
-          ? { color: "#062D2A", fillColor: "#062D2A", fillOpacity: 0.08 }
-          : { color: "#FFFFFF", fillColor: "#FFFFFF", fillOpacity: 0.14 });
         sw.querySelectorAll("[data-layer]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
         track("map_layer", { layer: key });
       });
