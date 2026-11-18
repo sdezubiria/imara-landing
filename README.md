@@ -20,7 +20,7 @@ python3 -m http.server 4100   # then open http://localhost:4100
 | `#ubicacion` | Ubicación | Interactive Leaflet map: satellite (default) and street view, markers for Imara and the Club Campestre, road labels. |
 | `#proyectos` | Proyectos actuales | Ferrat Gran Reserva and Foresti, one row each with render, logo, short text and a link that preselects the interest in the form. |
 | `#avance` | Cronograma | Placeholder steps, no status. |
-| `#registro` | Registro | Aerial render on the left (on top on phones), lead form beside it. |
+| `#registro` | Registro | Aerial render on the left (on top on phones), lead form beside it on a plain white background. |
 
 ## Files
 
