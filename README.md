@@ -14,13 +14,13 @@ python3 -m http.server 4100   # then open http://localhost:4100
 
 | Anchor | Section | Notes |
 |---|---|---|
-| `#inicio` | Hero | The Cargo page as HTML: headline, rule, "Naturaleza y ciudad en equilibrio.", Ibagué, Tolima. Desktop keeps the Cargo 1440 × 1024 frame. |
+| `#inicio` | Hero | The Cargo text (headline, rule, "Naturaleza y ciudad en equilibrio.", Ibagué, Tolima) in white over the street render, marked "* Render ilustrativo". |
 | `#proyecto` | El proyecto | 160 ha, mixed use, parque central, 15 minutes walking. No stat strip. |
 | `#video` | Video | Preliminary cut, flat 16:9 frame. |
 | `#ubicacion` | Ubicación | Interactive Leaflet map: satellite (default) and street view, markers for Imara and the Club Campestre, road labels. |
 | `#proyectos` | Proyectos actuales | Ferrat Gran Reserva and Foresti, one row each with render, logo, short text and a link that preselects the interest in the form. |
 | `#avance` | Cronograma | Placeholder steps, no status. |
-| `#registro` | Registro | Lead form on the sky, landscape at the bottom. |
+| `#registro` | Registro | Aerial render on the left (on top on phones), lead form beside it. |
 
 ## Files
 
@@ -44,6 +44,7 @@ Search the HTML for `pending`, `note` and `por confirmar`.
 
 - **Video** `assets/video/imara-video.mp4` is render v13 at 720p. Replace the file with the final cut (keep it under ~50 MB; GitHub rejects files over 100 MB), regenerate `assets/img/video-poster.jpg` and delete the "Versión preliminar" note under the video.
 - **Cronograma** (`#avance`): the five steps and all dates are examples. Get the real ones from Imara.
+- **Renders**: hero and registro use renders from imara.com.co, marked "* Render ilustrativo". Swap the files when the final renders arrive and keep the note if they stay illustrative.
 - **Contact** in the footer: phone and email.
 - **Habeas Data**: company name, NIT and contact in `privacidad.html`.
 
@@ -72,7 +73,8 @@ Rows get: date, name, email, phone, interest, consent, page, referrer and UTM ta
 
 | Asset | Source |
 |---|---|
-| `assets/img/hero.jpg`, `hero-mobile.jpg` | The two Cargo prototype images ([desktop](https://freight.cargo.site/t/original/i/J3137540318851830857371121012980/Desktop---1.png), [mobile](https://freight.cargo.site/t/original/i/I3136547585312538497915410895092/iPhone-16---17-Pro---1.png)) with the baked-in text removed so the page sets it as real text. |
+| `assets/img/render-calle.jpg`, `render-calle-mobile.jpg` | Street render from the live site imara.com.co (Cargo file `Desktop---15.png`, https://freight.cargo.site/t/original/i/H3138088706648026641128866107636/Desktop---15.png), resized to 2400 px; the phone version is a portrait crop of the bike lane. |
+| `assets/img/render-aereo.jpg` | Aerial render from the live site imara.com.co (Cargo file `m3.png`, https://freight.cargo.site/t/original/i/T3234042045776196390262566211828/m3.png), cropped above the "160ha" text block. |
 | `assets/img/ferrat-gran-reserva.jpg` | Aerial render from the developer's project page: https://proyectamosyedificamos.com/proyecto/venta/26/ferrat-gran-reserva (original `https://proyectamosyedificamos.com/storage/pictures/Meeb9sEe13ATVkhLcXj8.jpg`), resized to 1600 px. |
 | `assets/img/foresti.jpg` | House render from the developer's project page: https://proyectamosyedificamos.com/proyecto/venta/25/foresti-casas-campestres (original `https://proyectamosyedificamos.com/storage/pictures/tvtiWjp8ACc0JSSU2GOy.jpg`), cropped to remove the disclaimer line. The page credits the developer and says the images are illustrative. |
 | `assets/img/video-poster.jpg` | Frame of render v13 |
@@ -80,7 +82,7 @@ Rows get: date, name, email, phone, interest, consent, page, referrer and UTM ta
 | `assets/logo/*` | Imara logo SVGs and project logos (white PNGs, shown in green with a CSS mask) from `02_VideoTool/public` |
 | `assets/img/og-image.jpg` | The current Cargo hero image |
 
-Removed in the redesign (recoverable from git history): the nine `mapa-*.jpg` crops, `naturaleza.webp`, `collage.jpg`, `google-earth.jpg`, `hero-poster.jpg` and `assets/video/hero-drone.mp4`.
+Removed in the redesign (recoverable from git history): the nine `mapa-*.jpg` crops, `naturaleza.webp`, `collage.jpg`, `google-earth.jpg`, `hero-poster.jpg`, `assets/video/hero-drone.mp4`, and `hero.jpg` / `hero-mobile.jpg` (the Cargo landscape with its text removed, used until the renders replaced it).
 
 ## Going live
 

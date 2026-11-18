@@ -21,7 +21,7 @@ Reference: the client's Cargo prototype (one landscape photo, Prata headline in 
 | 8 | Count-up number animation | Stock "impressive stat" effect. | Removed with the stat strip. |
 | 9 | Fade-up reveal on every block, with staggered delays | Content stays invisible until JS runs and the block scrolls in. A full-page screenshot of the old build shows empty sections. | Removed. Content renders at once. |
 | 10 | Decorative concentric rings behind the form | Ornament with no meaning. | Removed. |
-| 11 | Dark hero video with three gradient overlays and white text | The opposite of the Cargo hero (bright sky, dark green type). | Hero is the Cargo landscape photo with the Cargo text in ink green. |
+| 11 | Dark hero video with three gradient overlays and white text | The opposite of the Cargo hero (bright sky, dark green type). | Hero keeps the Cargo text and layout over a render of a street in Imara from imara.com.co. One shade on the left and under the header keeps the white type readable. |
 | 12 | Pill buttons, ghost button with backdrop blur, animated scroll cue | Generic UI kit pieces. | Square buttons in ink green. No blur, no scroll cue. |
 | 13 | Masterplan tabs: six yellow pill tabs over dark map crops | Heavy, dark and unreadable on mobile. Not part of the Cargo direction. | Section removed with its nine `mapa-*.jpg` crops. |
 | 14 | Static, dark satellite image for location | Can't zoom or pan; road labels in yellow neon glow. | Interactive Leaflet map (satellite and street view) with markers for Imara and the Club Campestre. No boundary drawn until Imara confirms one. |

@@ -27,9 +27,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Prata&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/img/hero.jpg" media="(min-width: 700px)">
-  <link rel="preload" as="image" href="assets/img/hero-mobile.jpg" media="(max-width: 699px)">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="preload" as="image" href="assets/img/render-calle.jpg" media="(min-width: 700px)">
+  <link rel="preload" as="image" href="assets/img/render-calle-mobile.jpg" media="(max-width: 699px)">
+  <link rel="stylesheet" href="styles.css?v=4">
 
   <script src="config.js?v=1"></script>
   <script src="analytics.js?v=1"></script>
@@ -41,7 +41,8 @@
   <header class="site-header" data-header>
     <div class="wrap header-row">
       <a href="#inicio" class="brand" aria-label="Imara Ciudad Campestre, inicio">
-        <img src="assets/logo/imara-logo-ink.svg" alt="" width="124" height="80">
+        <img class="brand-light" src="assets/logo/imara-logo-light.svg" alt="" width="124" height="80">
+        <img class="brand-ink" src="assets/logo/imara-logo-ink.svg" alt="" width="124" height="80">
       </a>
       <nav class="nav" id="menu" aria-label="Principal" data-nav>
         <a href="#proyecto">El proyecto</a>
@@ -71,6 +72,7 @@
           Ibagué, Tolima
         </p>
       </div>
+      <p class="render-note">* Render ilustrativo</p>
     </section>
 
     <!-- ============ EL PROYECTO ============ -->
@@ -199,8 +201,12 @@
     </section>
 
     <!-- ============ REGISTRO ============ -->
-    <section class="section register" id="registro">
-      <div class="wrap register-grid">
+    <section class="register" id="registro">
+      <figure class="register-media">
+        <img src="assets/img/render-aereo.jpg" alt="Render aéreo de Imara: barrios, parque central, equipamientos y zonas verdes" loading="lazy" width="1600" height="1246">
+        <figcaption class="render-note">* Render ilustrativo</figcaption>
+      </figure>
+      <div class="register-body">
         <div class="register-copy">
           <h2 class="h2">Queremos invitarte a construir la expansión de Ibagué.</h2>
           <span class="rule" aria-hidden="true"></span>
