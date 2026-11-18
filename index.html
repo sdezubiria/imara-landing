@@ -32,7 +32,7 @@
   <link rel="preload" as="image" type="image/webp" href="assets/img/render-calle-1400.webp" media="(min-width: 700px) and (max-width: 1400px)">
   <link rel="preload" as="image" type="image/webp" href="assets/img/render-calle.webp" media="(min-width: 1401px)">
   <link rel="preload" as="image" type="image/webp" href="assets/img/render-calle-mobile.webp" media="(max-width: 699px)">
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=10">
 
   <script type="application/ld+json">
 {
@@ -166,9 +166,9 @@
         <img class="brand-ink" src="assets/logo/imara-logo-ink.svg" alt="" width="124" height="80">
       </a>
       <nav class="nav" id="menu" aria-label="Principal" data-nav>
+        <a href="#video">Video</a>
         <a href="#proyecto">El proyecto</a>
         <a href="#vision">Visión</a>
-        <a href="#video">Video</a>
         <a href="#ubicacion">Ubicación</a>
         <a href="#proyectos">Proyectos</a>
         <!-- <a href="#avance">Cronograma</a> hidden with #avance -->
@@ -195,6 +195,18 @@
         </p>
       </div>
       <p class="render-note">* Render ilustrativo</p>
+    </section>
+
+    <!-- ============ VIDEO (full screen) ============ -->
+    <section class="video-section" id="video" aria-labelledby="video-title">
+      <h2 class="sr-only" id="video-title">Conoce Imara</h2>
+      <div class="video-frame">
+        <video controls preload="none" playsinline poster="assets/img/video-poster.webp" data-track-video="imara_video">
+          <source src="assets/video/imara-video.mp4?v=14" type="video/mp4">
+          Tu navegador no puede reproducir este video.
+        </video>
+      </div>
+      <p class="render-note video-note">Versión preliminar del video</p>
     </section>
 
     <!-- ============ EL PROYECTO ============ -->
@@ -276,18 +288,6 @@
           </li>
         </ul>
       </div>
-    </section>
-
-    <!-- ============ VIDEO (full screen) ============ -->
-    <section class="video-section" id="video" aria-labelledby="video-title">
-      <h2 class="sr-only" id="video-title">Conoce Imara</h2>
-      <div class="video-frame">
-        <video controls preload="none" playsinline poster="assets/img/video-poster.webp" data-track-video="imara_video">
-          <source src="assets/video/imara-video.mp4?v=14" type="video/mp4">
-          Tu navegador no puede reproducir este video.
-        </video>
-      </div>
-      <p class="render-note video-note">Versión preliminar del video</p>
     </section>
 
     <!-- ============ UBICACION ============ -->
@@ -390,6 +390,25 @@
             <p class="step-date">Fecha por confirmar</p>
           </li>
         </ol>
+      </div>
+    </section>
+
+    <!-- ============ CIERRE (from the imara.com.co closing banner) ============ -->
+    <section class="closing" aria-labelledby="closing-title">
+      <picture class="closing-media">
+        <source media="(max-width: 699px)" type="image/webp" srcset="assets/img/closing-mobile.webp">
+        <source media="(max-width: 699px)" srcset="assets/img/closing-mobile.jpg">
+        <source type="image/webp" srcset="assets/img/closing.webp">
+        <img src="assets/img/closing.jpg" alt="" loading="lazy" width="1440" height="1024">
+      </picture>
+      <div class="wrap closing-grid">
+        <div class="closing-copy">
+          <span class="rule" aria-hidden="true" data-reveal></span>
+          <h2 class="closing-title" id="closing-title" data-reveal>Un mejor Ibagué es posible.</h2>
+          <span class="rule" aria-hidden="true" data-reveal></span>
+          <p class="closing-lead" data-reveal>Crecer con coherencia y visión a largo plazo.</p>
+        </div>
+        <img class="closing-logo" src="assets/logo/imara-logo-ink.svg" alt="Imara Ciudad Campestre" width="124" height="80" loading="lazy" data-reveal>
       </div>
     </section>
 

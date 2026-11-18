@@ -278,6 +278,26 @@ button { font: inherit; }
   .step-num { grid-row: span 3; font-size: 26px; margin: 0; }
 }
 
+/* Cierre: the Cargo landscape, ink type on the sky, logo on the right */
+.closing { position: relative; overflow: hidden; background: var(--sky); color: var(--ink); }
+.closing-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+.closing-grid {
+  position: relative; display: flex; justify-content: space-between; align-items: flex-start; gap: 40px;
+  padding: clamp(80px, 9vw, 136px) 0 clamp(260px, 30vw, 460px);
+}
+.closing .rule { margin: clamp(20px, 2.2vw, 32px) 0; }
+.closing-title { font: 400 clamp(36px, 4.4vw, 64px)/1.08 var(--serif); max-width: 14ch; }
+.closing-lead { margin: 0; max-width: 20ch; font: 400 clamp(22px, 2.4vw, 36px)/1.25 var(--serif); }
+.closing-logo { flex: none; width: clamp(140px, 15vw, 220px); height: auto; margin-top: clamp(8px, 2vw, 32px); }
+/* Phones: the photo sits at the bottom at its own size (750 × 1165, mountains start at 34%)
+   and the section above it takes the sky color of its top edge, so the type never runs into the cordillera. */
+@media (max-width: 699px) {
+  .closing { background: #A2CAFD; }
+  .closing-media img { top: auto; height: auto; }
+  .closing-grid { flex-direction: column; gap: 32px; padding: 72px 0 calc(102vw + 24px); }
+  .closing-logo { order: -1; width: 120px; margin-top: 0; }
+}
+
 /* Registro: aerial render beside the form, inside the page width */
 .register { background: var(--white); color: var(--ink); border-top: 1px solid var(--line); }
 .register-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px); align-items: stretch; }

@@ -15,13 +15,14 @@ python3 -m http.server 4100   # then open http://localhost:4100
 | Anchor | Section | Notes |
 |---|---|---|
 | `#inicio` | Hero | The Cargo text (headline, rule, "Naturaleza y ciudad en equilibrio.", Ibagué, Tolima) in white over the street render, marked "* Render ilustrativo". |
+| `#video` | Video | Full width, fills the screen under the header on desktop; 16:9 on phones and portrait screens. |
 | `#proyecto` | El proyecto | 160 ha, mixed use, parque central, 15 minutes walking. No stat strip. |
 | `#origen` | Origen (hidden) | Hidden with `hidden` after client feedback; remove the attribute to bring it back. "IMARA nace del territorio": the meaning of Ima (Pijao word for Madre Tierra) and the four rings (Equilibrio, Calidad/Belleza, Fortalecer relaciones, Nueva centralidad), drawn as inline SVG. |
 | `#vision` | Visión | "Naturaleza y ciudad en equilibrio": three paragraphs and the four pillars (Paisaje, Espacio público, Vida cotidiana, Conexiones) with the client's icons. |
-| `#video` | Video | Full width, fills the screen under the header on desktop; 16:9 on phones and portrait screens. |
 | `#ubicacion` | Ubicación | The Ibagué–Bogotá route graphic ("A tan sólo 3 horas de Bogotá"), then the interactive Leaflet map: street view (default) and satellite, markers for Imara and the Club Campestre, road labels. |
 | `#proyectos` | Proyectos actuales | Ferrat Gran Reserva and Foresti, one row each with render, logo, short text and a link that preselects the interest in the form. |
 | `#avance` | Cronograma (hidden) | Placeholder steps, no status. Hidden with `hidden` after client feedback, and its nav link is commented out; restore both to bring it back. |
+| (no anchor) | Cierre | The closing banner from imara.com.co: "Un mejor Ibagué es posible." / "Crecer con coherencia y visión a largo plazo." and the logo, over the Cargo landscape photo. On phones the photo sits at the bottom at its own size under a sky-colored block. |
 | `#registro` | Registro | Aerial render from `Render Modificado.psd` on the left (on top on phones), lead form beside it on a plain white background. |
 
 ## Files
@@ -94,8 +95,9 @@ Per the quote, GA4, Clarity, the conversion event and the Looker Studio dashboar
 | `assets/video/imara-video.mp4` | Render v14, 720p (preliminary). v14 puts the aerial render from `Render Modificado.psd` behind the closing section. |
 | `assets/logo/*` | Imara logo SVGs and project logos (white PNGs, shown in green with a CSS mask) from `02_VideoTool/public` |
 | `assets/img/og-image.jpg` | The current Cargo hero image |
+| `assets/img/closing.jpg`, `.webp`, `closing-mobile.*` | The Cargo prototype landscape with its text removed (`hero.jpg` / `hero-mobile.jpg` in commit 49c8a74). The phone version is cropped to y 560–1956 and resized to 750 px. |
 
-Removed in the redesign (recoverable from git history): the nine `mapa-*.jpg` crops, `naturaleza.webp`, `collage.jpg`, `google-earth.jpg`, `hero-poster.jpg`, `assets/video/hero-drone.mp4`, and `hero.jpg` / `hero-mobile.jpg` (the Cargo landscape with its text removed, used until the renders replaced it).
+Removed in the redesign (recoverable from git history): the nine `mapa-*.jpg` crops, `naturaleza.webp`, `collage.jpg`, `google-earth.jpg`, `hero-poster.jpg`, `assets/video/hero-drone.mp4`, and `hero.jpg` / `hero-mobile.jpg` (the Cargo landscape with its text removed, used until the renders replaced it; now back as `closing.*`).
 
 ## SEO and LLMO
 
