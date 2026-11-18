@@ -74,6 +74,9 @@ Rows get: date, name, email, phone, interest, consent, page, referrer and UTM ta
 
 ## Analytics
 
+Per the quote, GA4, Clarity, the conversion event and the Looker Studio dashboard are switched on in the real site, after it moves to imara.com.co. The code is ready; until then the page runs with analytics off and the form in demo mode.
+
+
 - `GA4_ID` → GA4 loads. Events: `generate_lead` (mark it as a key event/conversion in GA4), `form_start`, `cta_click`, `video_start`, `video_progress`, `map_layer`, `map_interact`.
 - `CLARITY_ID` → Clarity loads and gets the same event names.
 
@@ -99,7 +102,7 @@ Removed in the redesign (recoverable from git history): the nine `mapa-*.jpg` cr
 - JSON-LD in `index.html`: WebSite, Organization, Place (address, coordinates, amenities, Ferrat Gran Reserva and Foresti) and WebPage. No contact point yet: add phone and email when Imara confirms them.
 - Every fact on the page is in the HTML without JavaScript; the scroll animation only fades elements that are already there.
 - Photos in WebP with JPG fallback, smaller versions for phones (`srcset`), lazy loading below the hero, Leaflet loaded only near the map.
-- The full report is in Notion: "Informe SEO y LLMO · Imara Ciudad Campestre".
+- The full report is in Notion: "Informe SEO y LLMO · Imara Ciudad Campestre". Its summary follows the quote ("Cotización Landing Imara") item by item, with a short diagnosis of the current imara.com.co.
 
 ## Going live
 

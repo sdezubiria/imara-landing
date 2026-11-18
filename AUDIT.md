@@ -1,5 +1,7 @@
 # Audit: why the first build reads as AI-generated
 
+Internal design audit of the first build. The client-facing diagnosis of imara.com.co, mapped to the quote, is in the Notion report "Informe SEO y LLMO · Imara Ciudad Campestre".
+
 Reference: the client's Cargo prototype (one landscape photo, Prata headline in logo green `#062D2A` on the sky, short rule, "Naturaleza y ciudad en equilibrio.", pin + "Ibagué, Tolima"). The first build drifted away from it into a generic real-estate template. One line per problem, each with the fix applied in this redesign.
 
 ## Owner's points
