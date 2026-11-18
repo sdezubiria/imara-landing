@@ -40,6 +40,27 @@
     links.forEach(function (a) { var t = document.querySelector(a.getAttribute("href")); if (t) spy.observe(t); });
   }
 
+  /* ---------- scroll reveal ---------- */
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
+  if (revealEls.length && !reduceMotion && "IntersectionObserver" in window) {
+    revealEls.forEach(function (el) {
+      // small stagger between siblings that reveal together
+      var sibs = Array.prototype.filter.call(el.parentElement.children, function (c) { return c.hasAttribute("data-reveal"); });
+      var i = sibs.indexOf(el);
+      if (i > 0) el.style.setProperty("--d", Math.min(i * 90, 360) + "ms");
+    });
+    document.documentElement.classList.add("has-reveal");
+    var rio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.classList.add("is-in");
+        rio.unobserve(en.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    revealEls.forEach(function (el) { rio.observe(el); });
+  }
+
   /* ---------- location map (Leaflet, loaded when the section gets close) ---------- */
   var MAP = {
     // Club Campestre de Ibagué, geocoded with Nominatim (OSM way 30927829)
@@ -100,7 +121,7 @@
         attribution: "Mapa © Esri, HERE, Garmin, colaboradores de <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a>"
       })
     };
-    var current = layers.satelite.addTo(map);
+    var current = layers.mapa.addTo(map);   // street map by default
 
     L.marker(MAP.imara, {
       title: "Imara Ciudad Campestre", alt: "Imara Ciudad Campestre",

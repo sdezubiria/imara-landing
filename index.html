@@ -29,7 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Prata&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/img/render-calle.jpg" media="(min-width: 700px)">
   <link rel="preload" as="image" href="assets/img/render-calle-mobile.jpg" media="(max-width: 699px)">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=6">
 
   <script src="config.js?v=1"></script>
   <script src="analytics.js?v=1"></script>
@@ -46,6 +46,7 @@
       </a>
       <nav class="nav" id="menu" aria-label="Principal" data-nav>
         <a href="#proyecto">El proyecto</a>
+        <a href="#vision">Visión</a>
         <a href="#video">Video</a>
         <a href="#ubicacion">Ubicación</a>
         <a href="#proyectos">Proyectos</a>
@@ -64,10 +65,10 @@
     <!-- ============ HERO (Cargo) ============ -->
     <section class="hero" id="inicio">
       <div class="wrap hero-content">
-        <h1 class="hero-title">Al lado del<br> Campestre,<br> una nueva red<br> de ciudad.</h1>
-        <span class="rule" aria-hidden="true"></span>
-        <p class="hero-lead">Naturaleza y ciudad<br>en equilibrio.</p>
-        <p class="hero-place">
+        <h1 class="hero-title" data-reveal>Al lado del<br> Campestre,<br> una nueva red<br> de ciudad.</h1>
+        <span class="rule" aria-hidden="true" data-reveal></span>
+        <p class="hero-lead" data-reveal>Naturaleza y ciudad<br>en equilibrio.</p>
+        <p class="hero-place" data-reveal>
           <svg width="26" height="34" viewBox="0 0 18 24" aria-hidden="true"><path d="M9 1a8 8 0 0 0-8 8c0 6 8 14 8 14s8-8 8-14a8 8 0 0 0-8-8Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
           Ibagué, Tolima
         </p>
@@ -78,8 +79,8 @@
     <!-- ============ EL PROYECTO ============ -->
     <section class="section intro" id="proyecto">
       <div class="wrap intro-grid">
-        <h2 class="h2">160 hectáreas de ciudad nueva junto al Club Campestre.</h2>
-        <div class="intro-copy">
+        <h2 class="h2" data-reveal>160 hectáreas de ciudad nueva junto al Club Campestre.</h2>
+        <div class="intro-copy" data-reveal>
           <span class="rule" aria-hidden="true"></span>
           <p>Imara es un proyecto de uso mixto en la expansión de Ibagué: vivienda, comercio, colegios y espacios para el deporte y el descanso, conectados por un parque central.</p>
           <p>Todo a menos de 15 minutos caminando.</p>
@@ -87,32 +88,98 @@
       </div>
     </section>
 
-    <!-- ============ VIDEO ============ -->
-    <section class="section video-section" id="video">
-      <div class="wrap">
-        <h2 class="h2">Conoce Imara.</h2>
-        <div class="video-frame">
-          <video controls preload="none" playsinline poster="assets/img/video-poster.jpg" data-track-video="imara_video">
-            <source src="assets/video/imara-video.mp4" type="video/mp4">
-            Tu navegador no puede reproducir este video.
-          </video>
+    <!-- ============ ORIGEN ============ -->
+    <section class="section origin" id="origen">
+      <div class="wrap origin-grid">
+        <div class="origin-copy">
+          <h2 class="h2" data-reveal>Origen.</h2>
+          <span class="rule" aria-hidden="true" data-reveal></span>
+          <p class="origin-lead" data-reveal>IMARA nace del territorio.</p>
+          <p data-reveal>Su nombre encuentra su origen en Ima, palabra Pijao asociada a la Madre Tierra. Desde ahí surge una visión de ciudad que reconoce el paisaje, la memoria y las condiciones naturales del lugar como punto de partida.</p>
         </div>
-        <p class="note">Versión preliminar. El corte final reemplazará este video.</p>
+        <figure class="rings" data-reveal>
+          <svg viewBox="0 0 500 500" role="img" aria-labelledby="rings-title">
+            <title id="rings-title">Cuatro círculos, de afuera hacia adentro: Equilibrio, Calidad y belleza, Fortalecer relaciones, Nueva centralidad.</title>
+            <g fill="none" stroke="currentColor">
+              <ellipse cx="250" cy="246" rx="238" ry="232" stroke-width="16"/>
+              <ellipse cx="250" cy="304" rx="180" ry="174" stroke-width="13"/>
+              <ellipse cx="250" cy="362" rx="124" ry="116" stroke-width="11"/>
+              <ellipse cx="250" cy="406" rx="80" ry="72" stroke-width="9"/>
+            </g>
+            <g fill="currentColor" text-anchor="middle" font-family="Prata, Georgia, serif">
+              <text x="250" y="86" font-size="32">Equilibrio</text>
+              <text x="250" y="200" font-size="28">Calidad/Belleza</text>
+              <text x="250" y="284" font-size="24">Fortalecer</text>
+              <text x="250" y="310" font-size="24">relaciones</text>
+              <text x="250" y="400" font-size="21">Nueva</text>
+              <text x="250" y="424" font-size="21">centralidad</text>
+            </g>
+          </svg>
+        </figure>
       </div>
+    </section>
+
+    <!-- ============ VISION ============ -->
+    <section class="section vision" id="vision">
+      <div class="wrap vision-grid">
+        <div class="vision-copy">
+          <p class="kicker" data-reveal>Visión del proyecto</p>
+          <span class="rule" aria-hidden="true" data-reveal></span>
+          <h2 class="h2" data-reveal>Naturaleza y ciudad en equilibrio.</h2>
+          <span class="rule" aria-hidden="true" data-reveal></span>
+          <p data-reveal>IMARA imagina una ciudad donde el paisaje estructura la vida cotidiana y el espacio público conecta personas, proyectos y naturaleza.</p>
+          <p data-reveal>Parques, quebradas, alamedas, corredores verdes y recorridos peatonales forman una red continua que acompaña el crecimiento del proyecto y crea espacios para caminar, encontrarse, permanecer y disfrutar.</p>
+          <p data-reveal>Una visión de largo plazo donde cada desarrollo aporta a una ciudad más cercana, humana y conectada.</p>
+        </div>
+        <ul class="pillars" role="list">
+          <li class="pillar" data-reveal>
+            <img src="assets/icons/paisaje.png" alt="" width="137" height="127" loading="lazy">
+            <h3>Paisaje</h3>
+            <p>La naturaleza como parte de la vida cotidiana.</p>
+          </li>
+          <li class="pillar" data-reveal>
+            <img src="assets/icons/espacio-publico.png" alt="" width="137" height="127" loading="lazy">
+            <h3>Espacio público</h3>
+            <p>Lugares que inspiran encuentro y bienestar.</p>
+          </li>
+          <li class="pillar" data-reveal>
+            <img src="assets/icons/vida-cotidiana.png" alt="" width="137" height="127" loading="lazy">
+            <h3>Vida cotidiana</h3>
+            <p>Un entorno para crecer, compartir y disfrutar.</p>
+          </li>
+          <li class="pillar" data-reveal>
+            <img src="assets/icons/conexiones.png" alt="" width="137" height="127" loading="lazy">
+            <h3>Conexiones</h3>
+            <p>Una red que integra ciudad, paisaje y personas.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ VIDEO (full screen) ============ -->
+    <section class="video-section" id="video" aria-labelledby="video-title">
+      <h2 class="sr-only" id="video-title">Conoce Imara</h2>
+      <div class="video-frame">
+        <video controls preload="none" playsinline poster="assets/img/video-poster.jpg" data-track-video="imara_video">
+          <source src="assets/video/imara-video.mp4" type="video/mp4">
+          Tu navegador no puede reproducir este video.
+        </video>
+      </div>
+      <p class="render-note video-note">Versión preliminar del video</p>
     </section>
 
     <!-- ============ UBICACION ============ -->
     <section class="section location" id="ubicacion">
       <div class="wrap">
         <div class="section-head split-head">
-          <h2 class="h2">Junto al Club Campestre de Ibagué.</h2>
-          <p class="lead">Entre la Avenida Mirolindo, la Calle 145 y la Variante Ibagué–Armenia.</p>
+          <h2 class="h2" data-reveal>Junto al Club Campestre de Ibagué.</h2>
+          <p class="lead" data-reveal>Entre la Avenida Mirolindo, la Calle 145 y la Variante Ibagué–Armenia.</p>
         </div>
-        <div class="map-frame">
-          <div class="map" id="mapa" data-map role="region" aria-label="Mapa interactivo de la ubicación de Imara"></div>
+        <div class="map-frame" data-reveal>
+          <div class="map is-street" id="mapa" data-map role="region" aria-label="Mapa interactivo de la ubicación de Imara"></div>
           <div class="map-switch" role="group" aria-label="Tipo de mapa" data-map-switch hidden>
-            <button type="button" data-layer="satelite" aria-pressed="true">Satélite</button>
-            <button type="button" data-layer="mapa" aria-pressed="false">Mapa</button>
+            <button type="button" data-layer="mapa" aria-pressed="true">Mapa</button>
+            <button type="button" data-layer="satelite" aria-pressed="false">Satélite</button>
           </div>
           <p class="map-fallback" data-map-fallback hidden>No pudimos cargar el mapa. <a href="https://maps.google.com/?q=Club+Campestre+de+Ibagu%C3%A9" target="_blank" rel="noopener">Ver la ubicación en Google Maps</a>.</p>
         </div>
@@ -127,9 +194,9 @@
     <!-- ============ PROYECTOS ============ -->
     <section class="section projects" id="proyectos">
       <div class="wrap">
-        <h2 class="h2">Proyectos actuales.</h2>
+        <h2 class="h2" data-reveal>Proyectos actuales.</h2>
         <ul class="project-list" role="list">
-          <li class="project">
+          <li class="project" data-reveal>
             <figure class="project-media">
               <img src="assets/img/ferrat-gran-reserva.jpg" alt="Render aéreo de Ferrat Gran Reserva: vías internas y lotes junto al Club Campestre, con la cordillera al fondo" loading="lazy" width="1600" height="667">
             </figure>
@@ -141,7 +208,7 @@
               <a class="text-link" href="#registro" data-interest="Ferrat Gran Reserva" data-cta="ferrat">Me interesa Ferrat <span aria-hidden="true">→</span></a>
             </div>
           </li>
-          <li class="project">
+          <li class="project" data-reveal>
             <figure class="project-media">
               <img src="assets/img/foresti.jpg" alt="Render de una casa de Foresti de un piso, con jardín y la cordillera al fondo" loading="lazy" width="1200" height="540">
             </figure>
@@ -162,35 +229,35 @@
     <section class="section timeline-section" id="avance">
       <div class="wrap">
         <div class="section-head split-head">
-          <h2 class="h2">Cronograma.</h2>
+          <h2 class="h2" data-reveal>Cronograma.</h2>
           <p class="note">Hitos de ejemplo. Fechas por confirmar con Imara.</p>
         </div>
         <ol class="steps" role="list">
-          <li class="step">
+          <li class="step" data-reveal>
             <span class="step-num" aria-hidden="true">01</span>
             <h3>Plan parcial</h3>
             <p>Adopción del plan parcial y definición de los tres tipos de suelo.</p>
             <p class="step-date">Fecha por confirmar</p>
           </li>
-          <li class="step">
+          <li class="step" data-reveal>
             <span class="step-num" aria-hidden="true">02</span>
             <h3>Ferrat Gran Reserva</h3>
             <p>Lotes y apartamentos junto al Club Campestre.</p>
             <p class="step-date">Fecha por confirmar</p>
           </li>
-          <li class="step">
+          <li class="step" data-reveal>
             <span class="step-num" aria-hidden="true">03</span>
             <h3>Foresti</h3>
             <p>Casas y, en una etapa siguiente, apartamentos.</p>
             <p class="step-date">Fecha por confirmar</p>
           </li>
-          <li class="step">
+          <li class="step" data-reveal>
             <span class="step-num" aria-hidden="true">04</span>
             <h3>Parque central</h3>
             <p>Primera fase del espacio público que conecta el barrio.</p>
             <p class="step-date">Fecha por confirmar</p>
           </li>
-          <li class="step">
+          <li class="step" data-reveal>
             <span class="step-num" aria-hidden="true">05</span>
             <h3>Servicios y equipamientos</h3>
             <p>Colegios, salud y comercio alrededor del parque.</p>
@@ -207,13 +274,13 @@
         <figcaption class="render-note">* Render ilustrativo</figcaption>
       </figure>
       <div class="register-body">
-        <div class="register-copy">
+        <div class="register-copy" data-reveal>
           <h2 class="h2">Queremos invitarte a construir la expansión de Ibagué.</h2>
           <span class="rule" aria-hidden="true"></span>
           <p class="lead">Déjanos tus datos y el equipo de Imara te contactará.</p>
         </div>
 
-        <form class="form" data-lead-form novalidate>
+        <form class="form" data-lead-form novalidate data-reveal>
           <div class="field">
             <label for="f-nombre">Nombre completo</label>
             <input id="f-nombre" name="nombre" type="text" autocomplete="name" required>
@@ -286,6 +353,6 @@
     </div>
   </footer>
 
-  <script src="main.js?v=3" defer></script>
+  <script src="main.js?v=4" defer></script>
 </body>
 </html>

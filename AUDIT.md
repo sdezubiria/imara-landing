@@ -19,7 +19,7 @@ Reference: the client's Cargo prototype (one landscape photo, Prata headline in 
 |---|---|---|---|
 | 7 | Uppercase letter-spaced eyebrow over every heading ("EL PROYECTO", "POR QUÉ IMARA", "REGISTRO") in green or yellow | Template signature. It repeats what the heading and the nav already say. | Removed. Headings stand alone, with the Cargo short rule where a section opens. |
 | 8 | Count-up number animation | Stock "impressive stat" effect. | Removed with the stat strip. |
-| 9 | Fade-up reveal on every block, with staggered delays | Content stays invisible until JS runs and the block scrolls in. A full-page screenshot of the old build shows empty sections. | Removed. Content renders at once. |
+| 9 | Fade-up reveal on every block, with staggered delays | Content stays invisible until JS runs and the block scrolls in. A full-page screenshot of the old build shows empty sections. | Kept, done safely at the owner's request: one short fade-up, active only when JS runs and reduced motion is off, so content never depends on it. |
 | 10 | Decorative concentric rings behind the form | Ornament with no meaning. | Removed. |
 | 11 | Dark hero video with three gradient overlays and white text | The opposite of the Cargo hero (bright sky, dark green type). | Hero keeps the Cargo text and layout over a render of a street in Imara from imara.com.co. One shade on the left and under the header keeps the white type readable. |
 | 12 | Pill buttons, ghost button with backdrop blur, animated scroll cue | Generic UI kit pieces. | Square buttons in ink green. No blur, no scroll cue. |
