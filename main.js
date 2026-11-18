@@ -2,17 +2,14 @@
   "use strict";
   var cfg = window.IMARA_CONFIG || {};
   var track = window.imaraTrack || function () {};
-  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- header: solid after hero, mobile menu ---------- */
+  /* ---------- header: solid once the page scrolls, mobile menu ---------- */
   var header = document.querySelector("[data-header]");
-  var hero = document.querySelector(".hero");
   var toggle = document.querySelector("[data-nav-toggle]");
   var nav = document.querySelector("[data-nav]");
 
   function onScroll() {
-    var limit = hero ? hero.offsetHeight - 90 : 10;
-    header.classList.toggle("is-solid", window.scrollY > limit);
+    header.classList.toggle("is-solid", window.scrollY > 40);
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
@@ -32,7 +29,7 @@
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeMenu(); });
 
   /* active nav link */
-  var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]:not(.btn)'));
+  var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
   if ("IntersectionObserver" in window) {
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
@@ -43,70 +40,130 @@
     links.forEach(function (a) { var t = document.querySelector(a.getAttribute("href")); if (t) spy.observe(t); });
   }
 
-  /* ---------- hero video: respect reduced motion ---------- */
-  var heroVideo = document.querySelector(".hero-media");
-  if (heroVideo && reduceMotion) { heroVideo.removeAttribute("autoplay"); heroVideo.pause(); }
+  /* ---------- location map (Leaflet, loaded when the section gets close) ---------- */
+  var MAP = {
+    // Club Campestre de Ibagué, geocoded with Nominatim (OSM way 30927829)
+    club: [4.3999, -75.16258],
+    // Approximate outline of Imara (~156 ha): east of the golf course, south of
+    // Avenida Mirolindo, west of Calle 145. Traced from the client's location map.
+    area: [[4.4024, -75.1530], [4.4012, -75.1486], [4.3990, -75.1490], [4.3975, -75.1478], [4.3962, -75.1468],
+      [4.3925, -75.1502], [4.3895, -75.1530], [4.3897, -75.1575], [4.3915, -75.1615], [4.3932, -75.1634],
+      [4.3937, -75.1608], [4.3953, -75.1600], [4.3978, -75.1594], [4.3990, -75.1590], [4.4003, -75.1575], [4.4007, -75.1555]],
+    labels: [
+      { at: [4.4040, -75.1560], text: "Avenida Mirolindo" },
+      { at: [4.3962, -75.1458], text: "Calle 145" },
+      { at: [4.3912, -75.1640], text: "Variante Ibagué–Armenia" }
+    ],
+    leafletJs: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js",
+    leafletJsSri: "sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==",
+    leafletCss: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css",
+    leafletCssSri: "sha512-Zcn6bjR/8RZbLEpLIeOwNtzREBAJnUKESxces60Mpoj+2okopSAcSUIUOseddDm0cxnGQzxIR7vJgsLZbdLE3w=="
+  };
 
-  /* ---------- reveal on scroll + counters ---------- */
-  function countUp(el) {
-    var target = parseFloat(el.getAttribute("data-count"));
-    var decimals = parseInt(el.getAttribute("data-decimals") || "0", 10);
-    var fmt = function (v) { return v.toFixed(decimals).replace(".", ","); };
-    if (reduceMotion) { el.textContent = fmt(target); return; }
-    var start = null, dur = 1400;
-    function step(ts) {
-      if (!start) start = ts;
-      var p = Math.min((ts - start) / dur, 1);
-      el.textContent = fmt(target * (1 - Math.pow(1 - p, 3)));
-      if (p < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
+  var mapEl = document.querySelector("[data-map]");
+  var mapStarted = false;
+
+  function mapFailed() {
+    var fb = document.querySelector("[data-map-fallback]");
+    if (fb) fb.hidden = false;
   }
 
-  var revealEls = document.querySelectorAll("main .reveal:not(.hero .reveal), .compare");
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        en.target.classList.add("is-in");
-        en.target.querySelectorAll("[data-count]").forEach(countUp);
-        io.unobserve(en.target);
-      });
-    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
-    revealEls.forEach(function (el, i) {
-      var siblings = el.parentElement ? el.parentElement.querySelectorAll(":scope > .reveal") : [];
-      var idx = Array.prototype.indexOf.call(siblings, el);
-      if (idx > 0) el.style.transitionDelay = Math.min(idx * 70, 420) + "ms";
-      io.observe(el);
-    });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add("is-in"); });
+  function loadLeaflet(done) {
+    if (window.L) return done();
+    var css = document.createElement("link");
+    css.rel = "stylesheet"; css.href = MAP.leafletCss; css.integrity = MAP.leafletCssSri; css.crossOrigin = "";
+    document.head.appendChild(css);
+    var js = document.createElement("script");
+    js.src = MAP.leafletJs; js.integrity = MAP.leafletJsSri; js.crossOrigin = ""; js.async = true;
+    js.onload = function () { window.L ? done() : mapFailed(); };
+    js.onerror = mapFailed;
+    document.head.appendChild(js);
   }
 
-  /* ---------- masterplan tabs ---------- */
-  document.querySelectorAll("[data-tabs]").forEach(function (root) {
-    var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
-    function select(tab, focus) {
-      tabs.forEach(function (t) {
-        var on = t === tab;
-        t.setAttribute("aria-selected", String(on));
-        t.tabIndex = on ? 0 : -1;
-        document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
-      });
-      if (focus) tab.focus();
-      tab.scrollIntoView({ block: "nearest", inline: "nearest", behavior: reduceMotion ? "auto" : "smooth" });
-      track("masterplan_tab", { tab: tab.textContent.trim() });
-    }
-    tabs.forEach(function (t, i) {
-      t.addEventListener("click", function () { select(t, false); });
-      t.addEventListener("keydown", function (e) {
-        var n = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
-        if (!n) return;
-        e.preventDefault();
-        select(tabs[(i + n + tabs.length) % tabs.length], true);
-      });
+  function buildMap() {
+    var L = window.L;
+    var touch = window.matchMedia("(pointer: coarse)").matches;
+    var map = L.map(mapEl, {
+      scrollWheelZoom: false,
+      dragging: !touch,          // one finger keeps scrolling the page on phones; two fingers move the map
+      tap: false,
+      zoomSnap: 0.25,
+      attributionControl: true
     });
-  });
+    map.attributionControl.setPrefix(false);
+
+    var layers = {
+      satelite: L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
+        maxZoom: 19,
+        attribution: "Imágenes © Esri, Maxar, Earthstar Geographics"
+      }),
+      mapa: L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", {
+        maxZoom: 19,
+        attribution: "Mapa © Esri, HERE, Garmin, colaboradores de <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a>"
+      })
+    };
+    var current = layers.satelite.addTo(map);
+
+    var area = L.polygon(MAP.area, { color: "#FFFFFF", weight: 2.5, dashArray: "8 6", fillColor: "#FFFFFF", fillOpacity: 0.14 }).addTo(map);
+    var areaCenter = area.getBounds().getCenter();
+    L.marker(areaCenter, { interactive: false, keyboard: false, icon: L.divIcon({ className: "map-label is-name", html: "Imara", iconSize: null, iconAnchor: [30, 12] }) }).addTo(map);
+
+    L.marker(MAP.club, {
+      title: "Club Campestre de Ibagué", alt: "Club Campestre de Ibagué",
+      icon: L.divIcon({ className: "map-pin", iconSize: [16, 16], iconAnchor: [8, 8] })
+    }).addTo(map);
+    L.marker(MAP.club, { interactive: false, keyboard: false, icon: L.divIcon({ className: "map-label is-club", html: "Club Campestre<br>de Ibagué", iconSize: null, iconAnchor: [-10, 14] }) }).addTo(map);
+
+    MAP.labels.forEach(function (l) {
+      L.marker(l.at, { interactive: false, keyboard: false, icon: L.divIcon({ className: "map-label", html: l.text, iconSize: null, iconAnchor: [0, 8] }) }).addTo(map);
+    });
+
+    var bounds = area.getBounds().extend(MAP.club);
+    MAP.labels.forEach(function (l) { bounds.extend(l.at); });
+    function fit() { map.fitBounds(bounds, { paddingTopLeft: [16, 52], paddingBottomRight: [72, 16] }); }
+    fit();
+    window.addEventListener("resize", function () { map.invalidateSize(); });
+
+    var sw = document.querySelector("[data-map-switch]");
+    if (sw) {
+      sw.hidden = false;
+      sw.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-layer]");
+        if (!b) return;
+        var key = b.getAttribute("data-layer");
+        if (layers[key] === current) return;
+        map.removeLayer(current);
+        current = layers[key].addTo(map);
+        var street = key === "mapa";
+        mapEl.classList.toggle("is-street", street);
+        area.setStyle(street
+          ? { color: "#062D2A", fillColor: "#062D2A", fillOpacity: 0.08 }
+          : { color: "#FFFFFF", fillColor: "#FFFFFF", fillOpacity: 0.14 });
+        sw.querySelectorAll("[data-layer]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+        track("map_layer", { layer: key });
+      });
+    }
+    map.once("zoomstart dragstart", function () { track("map_interact", {}); });
+  }
+
+  function startMap() {
+    if (mapStarted || !mapEl) return;
+    mapStarted = true;
+    loadLeaflet(function () {
+      try { buildMap(); } catch (err) { console.error(err); mapFailed(); }
+    });
+  }
+
+  if (mapEl) {
+    if ("IntersectionObserver" in window) {
+      var mio = new IntersectionObserver(function (entries) {
+        if (entries.some(function (en) { return en.isIntersecting; })) { mio.disconnect(); startMap(); }
+      }, { rootMargin: "600px 0px" });
+      mio.observe(mapEl);
+    } else {
+      startMap();
+    }
+  }
 
   /* ---------- video tracking ---------- */
   document.querySelectorAll("[data-track-video]").forEach(function (v) {
