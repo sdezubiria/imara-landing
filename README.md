@@ -35,6 +35,8 @@ python3 -m http.server 4100   # then open http://localhost:4100
 | `analytics.js` | Loads GA4/Clarity from `config.js`; `imaraTrack(name, params)` sends events. |
 | `privacidad.html` | Habeas Data policy (draft, client must complete and approve). |
 | `apps-script/Code.gs` | Google Apps Script that receives the form and writes rows into a Google Sheet. |
+| `llms.txt` | Plain-text summary of the project for language models (ChatGPT, Gemini, Perplexity). |
+| `robots.txt`, `sitemap.xml` | Ready for imara.com.co: open to every crawler, sitemap with the two pages. On GitHub Pages they sit in a subfolder, so crawlers ignore them until the domain moves. |
 | `AUDIT.md` | What read as AI-generated in the first build, and the fix for each item. |
 | `assets/` | Images, logos and video. |
 
@@ -90,6 +92,14 @@ Rows get: date, name, email, phone, interest, consent, page, referrer and UTM ta
 | `assets/img/og-image.jpg` | The current Cargo hero image |
 
 Removed in the redesign (recoverable from git history): the nine `mapa-*.jpg` crops, `naturaleza.webp`, `collage.jpg`, `google-earth.jpg`, `hero-poster.jpg`, `assets/video/hero-drone.mp4`, and `hero.jpg` / `hero-mobile.jpg` (the Cargo landscape with its text removed, used until the renders replaced it).
+
+## SEO and LLMO
+
+- Title (56 characters) and description (160) name Imara, the Club Campestre and Ibagué. One H1 (with the project name and city for crawlers), one H2 per section, H3 for pillars, projects and steps.
+- JSON-LD in `index.html`: WebSite, Organization, Place (address, coordinates, amenities, Ferrat Gran Reserva and Foresti) and WebPage. No contact point yet: add phone and email when Imara confirms them.
+- Every fact on the page is in the HTML without JavaScript; the scroll animation only fades elements that are already there.
+- Photos in WebP with JPG fallback, smaller versions for phones (`srcset`), lazy loading below the hero, Leaflet loaded only near the map.
+- The full report is in Notion: "Informe SEO y LLMO · Imara Ciudad Campestre".
 
 ## Going live
 
