@@ -32,7 +32,7 @@
   <link rel="preload" as="image" type="image/webp" href="assets/img/render-calle-1400.webp" media="(min-width: 700px) and (max-width: 1400px)">
   <link rel="preload" as="image" type="image/webp" href="assets/img/render-calle.webp" media="(min-width: 1401px)">
   <link rel="preload" as="image" type="image/webp" href="assets/img/render-calle-mobile.webp" media="(max-width: 699px)">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=8">
 
   <script type="application/ld+json">
 {
@@ -171,7 +171,7 @@
         <a href="#video">Video</a>
         <a href="#ubicacion">Ubicación</a>
         <a href="#proyectos">Proyectos</a>
-        <a href="#avance">Cronograma</a>
+        <!-- <a href="#avance">Cronograma</a> hidden with #avance -->
       </nav>
       <a href="#registro" class="btn header-cta" data-cta="nav">Contáctanos <span aria-hidden="true">→</span></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" data-nav-toggle>
@@ -210,7 +210,8 @@
     </section>
 
     <!-- ============ ORIGEN ============ -->
-    <section class="section origin" id="origen">
+    <!-- Hidden per client feedback (GoodComments #15). Remove `hidden` to bring it back. -->
+    <section class="section origin" id="origen" hidden>
       <div class="wrap origin-grid">
         <div class="origin-copy">
           <h2 class="h2" data-reveal>Origen.</h2>
@@ -294,8 +295,11 @@
       <div class="wrap">
         <div class="section-head split-head">
           <h2 class="h2" data-reveal>Junto al Club Campestre de Ibagué.</h2>
-          <p class="lead" data-reveal>Entre la Avenida Mirolindo, la Calle 145 y la Variante Ibagué–Armenia.</p>
+          <p class="lead" data-reveal>Entre la Avenida Mirolindo, la Calle 145 y la Variante Ibagué–Armenia, a tres horas de Bogotá.</p>
         </div>
+        <figure class="proximity" data-reveal>
+          <picture><source type="image/webp" srcset="assets/img/bogota-ibague-1000.webp 1000w, assets/img/bogota-ibague.webp 2000w" sizes="(max-width: 1320px) 100vw, 1240px"><img src="assets/img/bogota-ibague.jpg" alt="Mapa satelital de la ruta entre Ibagué y Bogotá, pasando por Girardot: Imara está a tan solo 3 horas de Bogotá" loading="lazy" width="2000" height="1214"></picture>
+        </figure>
         <div class="map-frame" data-reveal>
           <div class="map is-street" id="mapa" data-map role="region" aria-label="Mapa interactivo de la ubicación de Imara"></div>
           <div class="map-switch" role="group" aria-label="Tipo de mapa" data-map-switch hidden>
@@ -347,7 +351,8 @@
     </section>
 
     <!-- ============ CRONOGRAMA (placeholder) ============ -->
-    <section class="section timeline-section" id="avance">
+    <!-- Hidden per client feedback (GoodComments #14). Remove `hidden` and restore the nav link to bring it back. -->
+    <section class="section timeline-section" id="avance" hidden>
       <div class="wrap">
         <div class="section-head split-head">
           <h2 class="h2" data-reveal>Cronograma.</h2>
@@ -392,7 +397,7 @@
     <section class="section register" id="registro">
       <div class="wrap register-grid">
       <figure class="register-media">
-        <picture><source type="image/webp" srcset="assets/img/render-aereo-900.webp 900w, assets/img/render-aereo.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw"><img src="assets/img/render-aereo.jpg" alt="Render aéreo de Imara: barrios, parque central, equipamientos y zonas verdes" loading="lazy" width="1600" height="1246"></picture>
+        <picture><source type="image/webp" srcset="assets/img/render-imara-900.webp 900w, assets/img/render-imara.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw"><img src="assets/img/render-imara.jpg" alt="Render aéreo de Imara junto al campo de golf del Club Campestre: barrios, parque central, equipamientos y zonas verdes" loading="lazy" width="1600" height="1246"></picture>
         <figcaption class="render-note">* Render ilustrativo</figcaption>
       </figure>
       <div class="register-body">

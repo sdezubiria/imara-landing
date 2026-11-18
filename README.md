@@ -16,13 +16,13 @@ python3 -m http.server 4100   # then open http://localhost:4100
 |---|---|---|
 | `#inicio` | Hero | The Cargo text (headline, rule, "Naturaleza y ciudad en equilibrio.", Ibagué, Tolima) in white over the street render, marked "* Render ilustrativo". |
 | `#proyecto` | El proyecto | 160 ha, mixed use, parque central, 15 minutes walking. No stat strip. |
-| `#origen` | Origen | "IMARA nace del territorio": the meaning of Ima (Pijao word for Madre Tierra) and the four rings (Equilibrio, Calidad/Belleza, Fortalecer relaciones, Nueva centralidad), drawn as inline SVG. |
+| `#origen` | Origen (hidden) | Hidden with `hidden` after client feedback; remove the attribute to bring it back. "IMARA nace del territorio": the meaning of Ima (Pijao word for Madre Tierra) and the four rings (Equilibrio, Calidad/Belleza, Fortalecer relaciones, Nueva centralidad), drawn as inline SVG. |
 | `#vision` | Visión | "Naturaleza y ciudad en equilibrio": three paragraphs and the four pillars (Paisaje, Espacio público, Vida cotidiana, Conexiones) with the client's icons. |
 | `#video` | Video | Full width, fills the screen under the header on desktop; 16:9 on phones and portrait screens. |
-| `#ubicacion` | Ubicación | Interactive Leaflet map: street view (default) and satellite, markers for Imara and the Club Campestre, road labels. |
+| `#ubicacion` | Ubicación | The Ibagué–Bogotá route graphic ("A tan sólo 3 horas de Bogotá"), then the interactive Leaflet map: street view (default) and satellite, markers for Imara and the Club Campestre, road labels. |
 | `#proyectos` | Proyectos actuales | Ferrat Gran Reserva and Foresti, one row each with render, logo, short text and a link that preselects the interest in the form. |
-| `#avance` | Cronograma | Placeholder steps, no status. |
-| `#registro` | Registro | Aerial render on the left (on top on phones), lead form beside it on a plain white background. |
+| `#avance` | Cronograma (hidden) | Placeholder steps, no status. Hidden with `hidden` after client feedback, and its nav link is commented out; restore both to bring it back. |
+| `#registro` | Registro | Aerial render from `Render Modificado.psd` on the left (on top on phones), lead form beside it on a plain white background. |
 
 ## Files
 
@@ -48,7 +48,7 @@ Search the HTML for `pending`, `note` and `por confirmar`.
 
 - **Video** `assets/video/imara-video.mp4` is render v13 at 720p. Replace the file with the final cut (keep it under ~50 MB; GitHub rejects files over 100 MB), regenerate `assets/img/video-poster.jpg` and delete the "Versión preliminar del video" note (`.video-note`) in `#video`. Note: the current cut ends with a "[Contacto: teléfono · web · redes]" placeholder card inside the video itself.
 - **Cronograma** (`#avance`): the five steps and all dates are examples. Get the real ones from Imara.
-- **Renders**: hero and registro use renders from imara.com.co, marked "* Render ilustrativo". Swap the files when the final renders arrive and keep the note if they stay illustrative.
+- **Renders**: the hero uses the street render from imara.com.co and registro the modified aerial render from the PSD, both marked "* Render ilustrativo". Swap the files when the final renders arrive and keep the note if they stay illustrative.
 - **Contact** in the footer: phone and email.
 - **Habeas Data**: company name, NIT and contact in `privacidad.html`.
 
@@ -85,7 +85,8 @@ Per the quote, GA4, Clarity, the conversion event and the Looker Studio dashboar
 | Asset | Source |
 |---|---|
 | `assets/img/render-calle.jpg`, `render-calle-mobile.jpg` | Street render from the live site imara.com.co (Cargo file `Desktop---15.png`, https://freight.cargo.site/t/original/i/H3138088706648026641128866107636/Desktop---15.png), resized to 2400 px; the phone version is a portrait crop of the bike lane. |
-| `assets/img/render-aereo.jpg` | Aerial render from the live site imara.com.co (Cargo file `m3.png`, https://freight.cargo.site/t/original/i/T3234042045776196390262566211828/m3.png), cropped above the "160ha" text block. |
+| `assets/img/render-imara.jpg`, `.webp`, `-900.webp` | `01_Video/02_Assets/ProjectLogos/Render Modificado.psd` (6000 × 3375, flattened composite read with `sips`), cropped to x 630–4963 to keep the Club Campestre golf course, resized to 1600 and 900 px. Replaced `render-aereo.*` (the Cargo `m3.png` crop with icons). |
+| `assets/img/bogota-ibague.jpg`, `.webp`, `-1000.webp` | Left half (x 0–5870) of `Frame-1.png` on imara.com.co (https://freight.cargo.site/t/original/i/L3226010044622724777565929263348/Frame-1.png). Stand-in for the Figma graphic in *Caminos del Agua*, node 191-250, which could not be exported (Figma MCP limit). Swap in the Figma export if it differs. |
 | `assets/img/ferrat-gran-reserva.jpg` | Aerial render from the developer's project page: https://proyectamosyedificamos.com/proyecto/venta/26/ferrat-gran-reserva (original `https://proyectamosyedificamos.com/storage/pictures/Meeb9sEe13ATVkhLcXj8.jpg`), resized to 1600 px. |
 | `assets/img/foresti.jpg` | House render from the developer's project page: https://proyectamosyedificamos.com/proyecto/venta/25/foresti-casas-campestres (original `https://proyectamosyedificamos.com/storage/pictures/tvtiWjp8ACc0JSSU2GOy.jpg`), cropped to remove the disclaimer line. The page credits the developer and says the images are illustrative. |
 | `assets/img/video-poster.jpg` | Frame at 28.4 s of render v13 (drone shot with the IMARA logo) |
