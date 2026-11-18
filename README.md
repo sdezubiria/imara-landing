@@ -46,7 +46,7 @@ After changing `styles.css` or `main.js`, bump the `?v=` number on its link in `
 
 Search the HTML for `pending`, `note` and `por confirmar`.
 
-- **Video** `assets/video/imara-video.mp4` is render v13 at 720p. Replace the file with the final cut (keep it under ~50 MB; GitHub rejects files over 100 MB), regenerate `assets/img/video-poster.jpg` and delete the "Versión preliminar del video" note (`.video-note`) in `#video`. Note: the current cut ends with a "[Contacto: teléfono · web · redes]" placeholder card inside the video itself.
+- **Video** `assets/video/imara-video.mp4` is render v14 at 720p. Replace the file with the final cut (keep it under ~50 MB; GitHub rejects files over 100 MB), regenerate `assets/img/video-poster.jpg` and delete the "Versión preliminar del video" note (`.video-note`) in `#video`. Note: the current cut ends with a "[Contacto: teléfono · web · redes]" placeholder card inside the video itself.
 - **Cronograma** (`#avance`): the five steps and all dates are examples. Get the real ones from Imara.
 - **Renders**: the hero uses the street render from imara.com.co and registro the modified aerial render from the PSD, both marked "* Render ilustrativo". Swap the files when the final renders arrive and keep the note if they stay illustrative.
 - **Contact** in the footer: phone and email.
@@ -89,9 +89,9 @@ Per the quote, GA4, Clarity, the conversion event and the Looker Studio dashboar
 | `assets/img/bogota-ibague.jpg`, `.webp`, `-1000.webp` | Left half (x 0–5870) of `Frame-1.png` on imara.com.co (https://freight.cargo.site/t/original/i/L3226010044622724777565929263348/Frame-1.png). Stand-in for the Figma graphic in *Caminos del Agua*, node 191-250, which could not be exported (Figma MCP limit). Swap in the Figma export if it differs. |
 | `assets/img/ferrat-gran-reserva.jpg` | Aerial render from the developer's project page: https://proyectamosyedificamos.com/proyecto/venta/26/ferrat-gran-reserva (original `https://proyectamosyedificamos.com/storage/pictures/Meeb9sEe13ATVkhLcXj8.jpg`), resized to 1600 px. |
 | `assets/img/foresti.jpg` | House render from the developer's project page: https://proyectamosyedificamos.com/proyecto/venta/25/foresti-casas-campestres (original `https://proyectamosyedificamos.com/storage/pictures/tvtiWjp8ACc0JSSU2GOy.jpg`), cropped to remove the disclaimer line. The page credits the developer and says the images are illustrative. |
-| `assets/img/video-poster.jpg` | Frame at 28.4 s of render v13 (drone shot with the IMARA logo) |
+| `assets/img/video-poster.jpg` | Frame at 28.4 s of render v14 (drone shot with the IMARA logo) |
 | `assets/icons/*.png` | The four Visión pillar icons, cut from the client's "Visión del proyecto" slide with a transparent background |
-| `assets/video/imara-video.mp4` | Render v13, 720p (preliminary) |
+| `assets/video/imara-video.mp4` | Render v14, 720p (preliminary). v14 puts the aerial render from `Render Modificado.psd` behind the closing section. |
 | `assets/logo/*` | Imara logo SVGs and project logos (white PNGs, shown in green with a CSS mask) from `02_VideoTool/public` |
 | `assets/img/og-image.jpg` | The current Cargo hero image |
 
