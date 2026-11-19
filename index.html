@@ -32,7 +32,7 @@
   <link rel="preload" as="image" type="image/webp" href="assets/img/render-calle-1400.webp" media="(min-width: 700px) and (max-width: 1400px)">
   <link rel="preload" as="image" type="image/webp" href="assets/img/render-calle.webp" media="(min-width: 1401px)">
   <link rel="preload" as="image" type="image/webp" href="assets/img/render-calle-mobile.webp" media="(max-width: 699px)">
-  <link rel="stylesheet" href="styles.css?v=10">
+  <link rel="stylesheet" href="styles.css?v=11">
 
   <script type="application/ld+json">
 {
@@ -393,33 +393,17 @@
       </div>
     </section>
 
-    <!-- ============ CIERRE (from the imara.com.co closing banner) ============ -->
-    <section class="closing" aria-labelledby="closing-title">
-      <picture class="closing-media">
-        <source media="(max-width: 699px)" type="image/webp" srcset="assets/img/closing-mobile.webp">
-        <source media="(max-width: 699px)" srcset="assets/img/closing-mobile.jpg">
-        <source type="image/webp" srcset="assets/img/closing.webp">
-        <img src="assets/img/closing.jpg" alt="" loading="lazy" width="1440" height="1024">
-      </picture>
-      <div class="wrap closing-grid">
-        <div class="closing-copy">
-          <span class="rule" aria-hidden="true" data-reveal></span>
-          <h2 class="closing-title" id="closing-title" data-reveal>Un mejor Ibagué es posible.</h2>
-          <span class="rule" aria-hidden="true" data-reveal></span>
-          <p class="closing-lead" data-reveal>Crecer con coherencia y visión a largo plazo.</p>
-        </div>
-        <img class="closing-logo" src="assets/logo/imara-logo-ink.svg" alt="Imara Ciudad Campestre" width="124" height="80" loading="lazy" data-reveal>
-      </div>
+    <!-- ============ RENDER (its own band, full width, image centered) ============ -->
+    <section class="render-band" aria-label="Render aéreo de Imara">
+      <figure class="render-band-media">
+        <picture><source type="image/webp" srcset="assets/img/render-imara-900.webp 900w, assets/img/render-imara.webp 1600w" sizes="100vw"><img src="assets/img/render-imara.jpg" alt="Render aéreo de Imara junto al campo de golf del Club Campestre: barrios, parque central, equipamientos y zonas verdes" loading="lazy" width="1600" height="1246"></picture>
+        <figcaption class="render-note">* Render ilustrativo</figcaption>
+      </figure>
     </section>
 
     <!-- ============ REGISTRO ============ -->
     <section class="section register" id="registro">
       <div class="wrap register-grid">
-      <figure class="register-media">
-        <picture><source type="image/webp" srcset="assets/img/render-imara-900.webp 900w, assets/img/render-imara.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw"><img src="assets/img/render-imara.jpg" alt="Render aéreo de Imara junto al campo de golf del Club Campestre: barrios, parque central, equipamientos y zonas verdes" loading="lazy" width="1600" height="1246"></picture>
-        <figcaption class="render-note">* Render ilustrativo</figcaption>
-      </figure>
-      <div class="register-body">
         <div class="register-copy" data-reveal>
           <h2 class="h2">Queremos invitarte a construir la expansión de Ibagué.</h2>
           <span class="rule" aria-hidden="true"></span>
@@ -473,8 +457,26 @@
           <p class="form-status" role="status" aria-live="polite" data-status></p>
         </form>
       </div>
+    </section>
+    <!-- ============ CIERRE (from the imara.com.co closing banner) ============ -->
+    <section class="closing" aria-labelledby="closing-title">
+      <picture class="closing-media">
+        <source media="(max-width: 699px)" type="image/webp" srcset="assets/img/closing-mobile.webp">
+        <source media="(max-width: 699px)" srcset="assets/img/closing-mobile.jpg">
+        <source type="image/webp" srcset="assets/img/closing.webp">
+        <img src="assets/img/closing.jpg" alt="" loading="lazy" width="1440" height="1024">
+      </picture>
+      <div class="wrap closing-grid">
+        <div class="closing-copy">
+          <span class="rule" aria-hidden="true" data-reveal></span>
+          <h2 class="closing-title" id="closing-title" data-reveal>Un mejor Ibagué es posible.</h2>
+          <span class="rule" aria-hidden="true" data-reveal></span>
+          <p class="closing-lead" data-reveal>Crecer con coherencia y visión a largo plazo.</p>
+        </div>
+        <img class="closing-logo" src="assets/logo/imara-logo-ink.svg" alt="Imara Ciudad Campestre" width="124" height="80" loading="lazy" data-reveal>
       </div>
     </section>
+
   </main>
 
   <!-- ============ FOOTER ============ -->

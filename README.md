@@ -22,8 +22,9 @@ python3 -m http.server 4100   # then open http://localhost:4100
 | `#ubicacion` | Ubicación | The Ibagué–Bogotá route graphic ("A tan sólo 3 horas de Bogotá"), then the interactive Leaflet map: street view (default) and satellite, markers for Imara and the Club Campestre, road labels. |
 | `#proyectos` | Proyectos actuales | Ferrat Gran Reserva and Foresti, one row each with render, logo, short text and a link that preselects the interest in the form. |
 | `#avance` | Cronograma (hidden) | Placeholder steps, no status. Hidden with `hidden` after client feedback, and its nav link is commented out; restore both to bring it back. |
-| (no anchor) | Cierre | The closing banner from imara.com.co: "Un mejor Ibagué es posible." / "Crecer con coherencia y visión a largo plazo." and the logo, over the Cargo landscape photo. On phones the photo sits at the bottom at its own size under a sky-colored block. |
-| `#registro` | Registro | Aerial render from `Render Modificado.psd` on the left (on top on phones), lead form beside it on a plain white background. |
+| (no anchor) | Render | The aerial render from `Render Modificado.psd` in its own full-width band, centered (16:9, capped at the screen height; full image on phones), marked "* Render ilustrativo". Split from the form after client feedback so the image is no longer cropped into a half column. |
+| `#registro` | Registro | Right after Proyectos (client feedback: the form goes after the Proyectamos y Edificamos projects). Heading on the left, lead form on the right, plain white background. The "Me interesa" links land here. |
+| (no anchor) | Cierre | The closing banner from imara.com.co: "Un mejor Ibagué es posible." / "Crecer con coherencia y visión a largo plazo." and the logo, over the Cargo landscape photo. Last section before the footer. On phones the photo sits at the bottom at its own size under a sky-colored block. |
 
 ## Files
 
@@ -49,7 +50,7 @@ Search the HTML for `pending`, `note` and `por confirmar`.
 
 - **Video** `assets/video/imara-video.mp4` is render v14 at 720p. Replace the file with the final cut (keep it under ~50 MB; GitHub rejects files over 100 MB), regenerate `assets/img/video-poster.jpg` and delete the "Versión preliminar del video" note (`.video-note`) in `#video`. Note: the current cut ends with a "[Contacto: teléfono · web · redes]" placeholder card inside the video itself.
 - **Cronograma** (`#avance`): the five steps and all dates are examples. Get the real ones from Imara.
-- **Renders**: the hero uses the street render from imara.com.co and registro the modified aerial render from the PSD, both marked "* Render ilustrativo". Swap the files when the final renders arrive and keep the note if they stay illustrative.
+- **Renders**: the hero uses the street render from imara.com.co and the render band the modified aerial render from the PSD, both marked "* Render ilustrativo". Swap the files when the final renders arrive and keep the note if they stay illustrative.
 - **Contact** in the footer: phone and email.
 - **Habeas Data**: company name, NIT and contact in `privacidad.html`.
 
