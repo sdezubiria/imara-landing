@@ -198,6 +198,12 @@
     });
   });
 
+  /* ---------- contact links (WhatsApp, Instagram) ---------- */
+  document.addEventListener("click", function (e) {
+    var c = e.target.closest("[data-contact]");
+    if (c) track("contact_click", { channel: c.getAttribute("data-contact") });
+  });
+
   /* ---------- CTA tracking + interest preselect ---------- */
   document.addEventListener("click", function (e) {
     var a = e.target.closest("[data-cta]");

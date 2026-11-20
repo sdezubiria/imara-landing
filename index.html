@@ -32,7 +32,7 @@
   <link rel="preload" as="image" type="image/webp" href="assets/img/render-calle-1400.webp" media="(min-width: 700px) and (max-width: 1400px)">
   <link rel="preload" as="image" type="image/webp" href="assets/img/render-calle.webp" media="(min-width: 1401px)">
   <link rel="preload" as="image" type="image/webp" href="assets/img/render-calle-mobile.webp" media="(max-width: 699px)">
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=13">
 
   <script type="application/ld+json">
 {
@@ -57,6 +57,16 @@
       "areaServed": {
         "@type": "City",
         "name": "Ibagué"
+      },
+      "sameAs": [
+        "https://www.instagram.com/imara_ciudad_campestre/"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+57-310-680-7454",
+        "contactType": "sales",
+        "areaServed": "CO",
+        "availableLanguage": "es"
       }
     },
     {
@@ -323,7 +333,7 @@
         <ul class="project-list" role="list">
           <li class="project" data-reveal>
             <figure class="project-media">
-              <picture><source type="image/webp" srcset="assets/img/ferrat-gran-reserva-800.webp 800w, assets/img/ferrat-gran-reserva.webp 1600w" sizes="(max-width: 860px) 100vw, 58vw"><img src="assets/img/ferrat-gran-reserva.jpg" alt="Render aéreo de Ferrat Gran Reserva: vías internas y lotes junto al Club Campestre, con la cordillera al fondo" loading="lazy" width="1600" height="667"></picture>
+              <picture><source type="image/webp" srcset="assets/img/ferrat-gran-reserva-800.webp?v=2 800w, assets/img/ferrat-gran-reserva.webp?v=2 1200w" sizes="(max-width: 860px) 100vw, 58vw"><img src="assets/img/ferrat-gran-reserva.jpg?v=2" alt="Render de la entrada principal de Ferrat Gran Reserva: portería circular en madera sobre muros de piedra, bajo un árbol grande al atardecer" loading="lazy" width="1200" height="600"></picture>
             </figure>
             <div class="project-body">
               <span class="project-logo logo-ferrat" role="img" aria-label="Ferrat Gran Reserva"></span>
@@ -456,6 +466,8 @@
           </button>
           <p class="form-status" role="status" aria-live="polite" data-status></p>
         </form>
+
+        <p class="register-alt">¿Prefieres escribirnos? <a href="https://wa.me/573106807454" target="_blank" rel="noopener" data-contact="whatsapp">WhatsApp +57 310 680 7454</a> · <a href="https://www.instagram.com/imara_ciudad_campestre/" target="_blank" rel="noopener" data-contact="instagram">Instagram</a></p>
       </div>
     </section>
     <!-- ============ CIERRE (from the imara.com.co closing banner) ============ -->
@@ -483,9 +495,9 @@
   <footer class="site-footer">
     <div class="wrap footer-grid">
       <img src="assets/logo/imara-logo-light.svg" alt="Imara Ciudad Campestre" width="124" height="80">
-      <div class="footer-col">
+      <div class="footer-col footer-contact">
         <p class="footer-title">Contacto</p>
-        <p>Ibagué, Tolima<br><span class="pending">Teléfono y correo por confirmar</span></p>
+        <p>Ibagué, Tolima<br><a href="https://wa.me/573106807454" target="_blank" rel="noopener" data-contact="whatsapp">WhatsApp +57 310 680 7454</a><br><a href="https://www.instagram.com/imara_ciudad_campestre/" target="_blank" rel="noopener" data-contact="instagram">Instagram @imara_ciudad_campestre</a><br><span class="pending">Correo por confirmar</span></p>
       </div>
       <div class="footer-col">
         <p class="footer-title">Navegar</p>
@@ -502,6 +514,6 @@
     </div>
   </footer>
 
-  <script src="main.js?v=4" defer></script>
+  <script src="main.js?v=5" defer></script>
 </body>
 </html>

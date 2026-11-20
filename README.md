@@ -51,7 +51,7 @@ Search the HTML for `pending`, `note` and `por confirmar`.
 - **Video** `assets/video/imara-video.mp4` is render v14 at 720p. Replace the file with the final cut (keep it under ~50 MB; GitHub rejects files over 100 MB), regenerate `assets/img/video-poster.jpg` and delete the "Versión preliminar del video" note (`.video-note`) in `#video`. Note: the current cut ends with a "[Contacto: teléfono · web · redes]" placeholder card inside the video itself.
 - **Cronograma** (`#avance`): the five steps and all dates are examples. Get the real ones from Imara.
 - **Renders**: the hero uses the street render from imara.com.co and the render band the modified aerial render from the PSD, both marked "* Render ilustrativo". Swap the files when the final renders arrive and keep the note if they stay illustrative.
-- **Contact** in the footer: phone and email.
+- **Contact**: WhatsApp +57 310 680 7454 (`https://wa.me/573106807454`) and Instagram @imara_ciudad_campestre are live in the footer and in a line under the Registro form. The email is still "Correo por confirmar" in the footer; add it there and to the Organization JSON-LD when Imara sends it.
 - **Habeas Data**: company name, NIT and contact in `privacidad.html`.
 
 ## Scroll reveal
@@ -79,7 +79,7 @@ Rows get: date, name, email, phone, interest, consent, page, referrer and UTM ta
 Per the quote, GA4, Clarity, the conversion event and the Looker Studio dashboard are switched on in the real site, after it moves to imara.com.co. The code is ready; until then the page runs with analytics off and the form in demo mode.
 
 
-- `GA4_ID` → GA4 loads. Events: `generate_lead` (mark it as a key event/conversion in GA4), `form_start`, `cta_click`, `video_start`, `video_progress`, `map_layer`, `map_interact`.
+- `GA4_ID` → GA4 loads. Events: `generate_lead` (mark it as a key event/conversion in GA4), `form_start`, `cta_click`, `contact_click` (`channel`: `whatsapp` or `instagram`, from links with `data-contact`), `video_start`, `video_progress`, `map_layer`, `map_interact`.
 - `CLARITY_ID` → Clarity loads and gets the same event names.
 
 ## Assets and sources
@@ -89,7 +89,7 @@ Per the quote, GA4, Clarity, the conversion event and the Looker Studio dashboar
 | `assets/img/render-calle.jpg`, `render-calle-mobile.jpg` | Street render from the live site imara.com.co (Cargo file `Desktop---15.png`, https://freight.cargo.site/t/original/i/H3138088706648026641128866107636/Desktop---15.png), resized to 2400 px; the phone version is a portrait crop of the bike lane. |
 | `assets/img/render-imara.jpg`, `.webp`, `-900.webp` | `01_Video/02_Assets/ProjectLogos/Render Modificado.psd` (6000 × 3375, flattened composite read with `sips`), cropped to x 630–4963 to keep the Club Campestre golf course, resized to 1600 and 900 px. Replaced `render-aereo.*` (the Cargo `m3.png` crop with icons). |
 | `assets/img/bogota-ibague.jpg`, `.webp`, `-1000.webp` | Left half (x 0–5870) of `Frame-1.png` on imara.com.co (https://freight.cargo.site/t/original/i/L3226010044622724777565929263348/Frame-1.png). Stand-in for the Figma graphic in *Caminos del Agua*, node 191-250, which could not be exported (Figma MCP limit). Swap in the Figma export if it differs. |
-| `assets/img/ferrat-gran-reserva.jpg` | Aerial render from the developer's project page: https://proyectamosyedificamos.com/proyecto/venta/26/ferrat-gran-reserva (original `https://proyectamosyedificamos.com/storage/pictures/Meeb9sEe13ATVkhLcXj8.jpg`), resized to 1600 px. |
+| `assets/img/ferrat-gran-reserva.jpg`, `.webp`, `-800.webp` | "Entrada principal" render (circular wooden gatehouse under a tree at dusk) from the gallery of the developer's project page: https://proyectamosyedificamos.com/proyecto/venta/26/ferrat-gran-reserva (original `https://proyectamosyedificamos.com/storage/pictures/v1aKunJ5hVpFnodvuChK.jpg`, 1200 × 600, no text on it). Kept at its own 1200 px (no upscaling) plus an 800 px WebP; the image tags carry `?v=2` because the filenames did not change. The same render with logos and a disclaimer is the page's banner (`2ZvZ4KDeMPlQhN2RxEBZ.jpg`). Replaced the aerial render `Meeb9sEe13ATVkhLcXj8.jpg` at the client's request. |
 | `assets/img/foresti.jpg` | House render from the developer's project page: https://proyectamosyedificamos.com/proyecto/venta/25/foresti-casas-campestres (original `https://proyectamosyedificamos.com/storage/pictures/tvtiWjp8ACc0JSSU2GOy.jpg`), cropped to remove the disclaimer line. The page credits the developer and says the images are illustrative. |
 | `assets/img/video-poster.jpg` | Frame at 28.4 s of render v14 (drone shot with the IMARA logo) |
 | `assets/icons/*.png` | The four Visión pillar icons, cut from the client's "Visión del proyecto" slide with a transparent background |
@@ -103,7 +103,7 @@ Removed in the redesign (recoverable from git history): the nine `mapa-*.jpg` cr
 ## SEO and LLMO
 
 - Title (56 characters) and description (160) name Imara, the Club Campestre and Ibagué. One H1 (with the project name and city for crawlers), one H2 per section, H3 for pillars, projects and steps.
-- JSON-LD in `index.html`: WebSite, Organization, Place (address, coordinates, amenities, Ferrat Gran Reserva and Foresti) and WebPage. No contact point yet: add phone and email when Imara confirms them.
+- JSON-LD in `index.html`: WebSite, Organization, Place (address, coordinates, amenities, Ferrat Gran Reserva and Foresti) and WebPage. Organization has `sameAs` (Instagram) and a sales `contactPoint` (+57-310-680-7454); add the email when Imara confirms it.
 - Every fact on the page is in the HTML without JavaScript; the scroll animation only fades elements that are already there.
 - Photos in WebP with JPG fallback, smaller versions for phones (`srcset`), lazy loading below the hero, Leaflet loaded only near the map.
 - The full report is in Notion: "Informe SEO y LLMO · Imara Ciudad Campestre". Its summary follows the quote ("Cotización Landing Imara") item by item, with a short diagnosis of the current imara.com.co.
