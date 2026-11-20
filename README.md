@@ -50,8 +50,8 @@ Search the HTML for `pending`, `note` and `por confirmar`.
 
 - **Cronograma** (`#avance`): the five steps and all dates are examples. Get the real ones from Imara.
 - **Renders**: the hero uses the street render from imara.com.co and the render band the modified aerial render from the PSD, both marked "* Render ilustrativo". Swap the files when the final renders arrive and keep the note if they stay illustrative.
-- **Contact**: WhatsApp +57 310 680 7454 (`https://wa.me/573106807454`) and Instagram @imara_ciudad_campestre are live in the footer and in a line under the Registro form. The email is still "Correo por confirmar" in the footer; add it there and to the Organization JSON-LD when Imara sends it.
-- **Habeas Data**: company name, NIT, address and email in `privacidad.html`. WhatsApp and Instagram are already filled in as the channel for data requests and in "Responsable".
+- **Contact**: WhatsApp +57 310 680 7454 (`https://wa.me/573106807454`), Instagram @imara_ciudad_campestre and info@imara.com.co (confirmed by Imara on 2026-11-19) are live in the footer, the Organization JSON-LD and the privacy policy; WhatsApp and Instagram also sit under the Registro form.
+- **Habeas Data**: company name, NIT and address in `privacidad.html`. The email, WhatsApp and Instagram are filled in as the channel for data requests and in "Responsable".
 
 ## Scroll reveal
 
