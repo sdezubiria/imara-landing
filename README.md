@@ -20,7 +20,7 @@ python3 -m http.server 4100   # then open http://localhost:4100
 | `#origen` | Origen (hidden) | Hidden with `hidden` after client feedback; remove the attribute to bring it back. "IMARA nace del territorio": the meaning of Ima (Pijao word for Madre Tierra) and the four rings (Equilibrio, Calidad/Belleza, Fortalecer relaciones, Nueva centralidad), drawn as inline SVG. |
 | `#vision` | Visión | "Naturaleza y ciudad en equilibrio": three paragraphs and the four pillars (Paisaje, Espacio público, Vida cotidiana, Conexiones) with the client's icons. |
 | `#ubicacion` | Ubicación | The Ibagué–Bogotá route graphic ("A tan sólo 3 horas de Bogotá"), then the interactive Leaflet map: street view (default) and satellite, markers for Imara and the Club Campestre, road labels. |
-| `#proyectos` | Proyectos actuales | Ferrat Gran Reserva and Foresti, one row each with render, logo, short text and a link that preselects the interest in the form. |
+| `#proyectos` | Proyectos actuales | Ferrat Gran Reserva and Foresti, one row each with render, logo, short text and a link to the project's page on the developer's site (proyectamosyedificamos.com, new tab). |
 | `#avance` | Cronograma (hidden) | Placeholder steps, no status. Hidden with `hidden` after client feedback, and its nav link is commented out; restore both to bring it back. |
 | (no anchor) | Render | The aerial render from `Render Modificado.psd` in its own full-width band, centered (16:9, capped at the screen height; full image on phones), marked "* Render ilustrativo". Split from the form after client feedback so the image is no longer cropped into a half column. |
 | `#registro` | Registro | Right after Proyectos (client feedback: the form goes after the Proyectamos y Edificamos projects). Heading on the left, lead form on the right, plain white background. The "Me interesa" links land here. |
@@ -51,7 +51,7 @@ Search the HTML for `pending`, `note` and `por confirmar`.
 - **Cronograma** (`#avance`): the five steps and all dates are examples. Get the real ones from Imara.
 - **Renders**: the hero uses the street render from imara.com.co and the render band the modified aerial render from the PSD, both marked "* Render ilustrativo". Swap the files when the final renders arrive and keep the note if they stay illustrative.
 - **Contact**: WhatsApp +57 310 680 7454 (`https://wa.me/573106807454`) and Instagram @imara_ciudad_campestre are live in the footer and in a line under the Registro form. The email is still "Correo por confirmar" in the footer; add it there and to the Organization JSON-LD when Imara sends it.
-- **Habeas Data**: company name, NIT and contact in `privacidad.html`.
+- **Habeas Data**: company name, NIT, address and email in `privacidad.html`. WhatsApp and Instagram are already filled in as the channel for data requests and in "Responsable".
 
 ## Scroll reveal
 
