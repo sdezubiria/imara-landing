@@ -203,7 +203,6 @@ button { font: inherit; }
 .video-section { position: relative; background: #000; }
 .video-frame { height: calc(100svh - var(--header-h)); min-height: 420px; }
 .video-frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
-.video-note { top: 16px; bottom: auto; }
 @media (max-width: 699px), (orientation: portrait) {
   .video-frame { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
   .video-frame video { object-fit: contain; }
